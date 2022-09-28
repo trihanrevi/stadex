@@ -162,7 +162,6 @@ server <- function(input, output, session){
     else if(input$num=="QQ-Plot"){
       qqnorm(var(),main = paste("QQ-Plot of", input$var1, "vs", input$var3), col =input$warna,
                 xlab = input$var1, ylab = input$var3) 
-      qqline(var(), col = "red")}
     
     
     
