@@ -30,14 +30,7 @@ ui <- dashboardPage(
                                     label = "Pilih Variabel Numerik ke-2:",
                                     choices = NULL,
                                     multiple = FALSE,
-                                    selected = NULL)),
-                    conditionalPanel(
-                      condition = "input.num == 'QQ-Plot'",
-                      selectInput("var3",
-                                  label = "Pilih Variabel Numerik ke-2:",
-                                  choices = NULL,
-                                  multiple = FALSE,
-                                  selected = NULL))
+                                    selected = NULL))
                 )
         ),
     
