@@ -72,7 +72,9 @@ ui <- dashboardPage(
                )
            ),
           tabPanel("Statistics",
-                   verbatimTextOutput(outputId = "summary"))
+                   verbatimTextOutput(outputId = "summary")),
+          tabPanel(title ="Tentang Aplikasi",
+                   textOutput(outputId = "note"))
        )
     )
 )
@@ -120,6 +122,8 @@ server <- function(input, output, session){
       digits = 1,
       out = "table1.txt")
   )
+  output$note <- renderText("STADEX atau Statistical Data Exploration merupakan aplikasi yang berguna untuk melakukan eksplorasi data dan memberikan informasi terkait statistika deskriptif seperti mean, median, max, min, percentil, dan standar deviasi sehingga membantu dalam memahami karakteristik dari data. Statistical Data Exploration juga dapat melakukan uji normalitas untuk melihat kenormalan dari data. Statistical Data Exploration hanya terbatas pada data bertipe numerik.
+")
   
   output$plot <- renderPlot({
     if(input$num=="Histogram"){
