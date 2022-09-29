@@ -164,7 +164,6 @@ server <- function(input, output, session){
                 xlab = input$var1, ylab = input$var3) 
       qqline(var(), col = "red")}
     
-    
   })
 }
 
