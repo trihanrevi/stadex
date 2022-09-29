@@ -73,6 +73,17 @@ ui <- dashboardPage(
            ),
           tabPanel("Statistics",
                    verbatimTextOutput(outputId = "summary")),
+           tabPanel(
+           "Uji Normalitas",
+           box(title = "Uji Normalitas",
+                 selectInput(inputId = "sel.norm",
+                             label = "Pilih Jenis Uji",
+                             choices = c("Shapiro-Wilk"="Shapiro-Wilk",
+                                         "Kolmogorov-Smirnov"= "Kolmogorov-Smirnov"
+                             ),
+                             selected = "Shapiro-Wilk"),
+                 verbatimTextOutput(outputId = "norm"),
+                 verbatimTextOutput(outputId = "norm.result")),
           tabPanel(title ="Tentang Aplikasi",
                    textOutput(outputId = "note"))
        )
@@ -163,6 +174,4 @@ server <- function(input, output, session){
     
   })
 }
-
-shinyApp(ui, server)
-
+     
