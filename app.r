@@ -165,7 +165,6 @@ server <- function(input, output, session){
       qqline(var(), col = "red")}
     
     
-    
   })
 }
 
