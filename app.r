@@ -83,7 +83,7 @@ ui <- dashboardPage(
                              ),
                              selected = "Shapiro-Wilk"),
                  verbatimTextOutput(outputId = "norm"),
-                 verbatimTextOutput(outputId = "norm.result")),
+                 verbatimTextOutput(outputId = "norm.result"))),
           tabPanel(title ="Tentang Aplikasi",
                    textOutput(outputId = "note"))
        )
