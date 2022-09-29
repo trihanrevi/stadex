@@ -168,10 +168,42 @@ server <- function(input, output, session){
       p <- plot(var(), vartu(), main = paste("Scatter Plot of", input$var1, "vs", input$var2), col =input$warna,
                 xlab = input$var1, ylab = input$var2)}
     else if(input$num=="QQ-Plot"){
-      qqnorm(var(),main = paste("QQ-Plot of", input$var1, "vs", input$var3), col =input$warna,
+      qqnorm(var(),main = paste("QQ-Plot of", input$var1), col =input$warna,
                 xlab = input$var1, ylab = input$var3) 
       qqline(var(), col = "red")}
     
   })
+        
+  asumsi.norm <- reactive({
+    req(var())
+    req(input$sel.norm)
+    if(input$sel.norm == "Shapiro-Wilk"){
+      return(stats::shapiro.test(var()))
+    }
+    else if(input$sel.norm == "Kolmogorov-Smirnov"){
+      return(stats::ks.test(var(), y = pnorm))
+    }
+  })
+  
+  norm.result <- reactive({
+    req(asumsi.norm())
+    if(asumsi.norm()$p.value > 0.05) {
+      return("Menyebar normal")
+    }
+    else{
+      return("Tidak menyebar normal")
+    }
+  })
+  
+  output$norm <- renderPrint({
+    req(input$var1)
+    print(asumsi.norm())
+  })
+  
+  output$norm.result <- renderPrint({
+    req(norm.result())
+    print(norm.result())
+  })  
 }
      
+shinyApp(ui, server)
