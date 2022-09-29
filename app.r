@@ -10,11 +10,11 @@ ui <- dashboardPage(
     dashboardHeader(title = "DASHBOARD"),
     dashboardSidebar(
             sidebarMenu(
-                    fileInput("csv_input", "Select CSV File to Import", accept = ".csv"),
+                    fileInput("csv_input", "Unggah file CSV", accept = ".csv"),
                     checkboxInput(inputId = "header", 
                                   label = "Baris pertama merupakan nama kolom", 
                                   value = TRUE),
-                    selectInput(inputId = "Sep", label = "Choose Separator",
+                    selectInput(inputId = "Sep", label = "Pilih Pemisah",
                                 choices = c("semicolon (;)"=";",
                                             "comma (,)"=",",
                                             "pipe (|)"="|",
