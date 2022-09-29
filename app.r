@@ -37,7 +37,7 @@ ui <- dashboardPage(
     dashboardBody(
        tabsetPanel(
          tabPanel("Data Table", 
-                  dataTableOutput(outputId = "tabel")),
+                  dataTableOutput(outputId = "tabel"), style= "height:500px; overflow-y: scroll;overflow-x: scroll;"),
           tabPanel(
                title = "Plot",
                colourInput("warna", label = "Pilih warna chart",
