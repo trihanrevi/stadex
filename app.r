@@ -3,7 +3,6 @@ library(shinydashboard)
 library(colourpicker)
 library(data.table)
 library(DT)
-library(car)
 
 ui <- dashboardPage(
     skin = "blue",
