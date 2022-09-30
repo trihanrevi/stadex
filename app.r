@@ -6,7 +6,7 @@ library(DT)
 
 ui <- dashboardPage(
     skin = "blue",
-    dashboardHeader(title = "DASHBOARD"),
+    dashboardHeader(title = "STADEX"),
     dashboardSidebar(
             sidebarMenu(
                     fileInput("csv_input", "Unggah file CSV", accept = ".csv"),
