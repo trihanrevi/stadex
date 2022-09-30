@@ -49,15 +49,7 @@ ui <- dashboardPage(
                  fluidRow(
                    column(4,
                           sliderInput("slider", "Pilih Break Points", 
-                                      1, 100, 12, width = "420px")),
-                   column(3,
-                          selectInput("freqProp", "Pilih Jenis Data",
-                                      c("Frekuensi", "Proporsi")),
-                          conditionalPanel(
-                            condition = "input.freqProp == 'Proporsi'",
-                            checkboxInput("histDen", "Density Plot", value=T)
-                          )
-                   )
+                                      1, 100, 12, width = "420px"))
                  )
                ),
                conditionalPanel(
@@ -89,7 +81,7 @@ ui <- dashboardPage(
        )
     )
 )
-)
+
 server <- function(input, output, session){
   csv_input <- reactive({
     req(input$csv_input)
@@ -139,16 +131,8 @@ server <- function(input, output, session){
   
   output$plot <- renderPlot({
     if(input$num=="Histogram"){
-      if(input$freqProp=="Frekuensi"){
         p <- hist(var(), xlab = input$var1, main = paste("Histogram of", input$var1), 
                   col = input$warna, breaks=input$slider)
-      } else {
-        p <- hist(var(), xlab = input$var1, main = paste("Histogram of", input$var1), 
-                  col = input$warna, breaks=input$slider, freq=F)
-      }
-      if(input$histDen){
-        p <- lines(density(var()), col = "black", lwd = 2)
-      }
     } else if(input$num=="Boxplot"){
       p <- boxplot(var(), xlab = input$var1, main = paste("Boxplot of", input$var1), col = input$warna)
     } else if(input$num=="Density"){
