@@ -22,7 +22,7 @@ ui <- dashboardPage(
                                 label = "Pilih Variabel Numerik:",
                                 choices = NULL), 
                     selectInput(inputId = "num", label = "Pilih Jenis Visualisasi", 
-                                c("Histogram", "Boxplot", "Density", "scatter plot","QQ-Plot")),
+                                c("Histogram", "Boxplot", "Density", "Scatter Plot","QQ-Plot")),
                     conditionalPanel(
                         condition = "input.num == 'scatter plot'",
                         selectInput("var2",
@@ -149,7 +149,7 @@ server <- function(input, output, session){
           p <- polygon(density(var()), col = input$warna)
         }
       }
-    } else if(input$num=="scatter plot"){
+    } else if(input$num=="Scatter Plot"){
       p <- plot(var(), vartu(), main = paste("Scatter Plot of", input$var1, "vs", input$var2), col =input$warna,
                 xlab = input$var1, ylab = input$var2)}
     else if(input$num=="QQ-Plot"){
