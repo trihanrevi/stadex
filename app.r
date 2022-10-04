@@ -126,8 +126,17 @@ server <- function(input, output, session){
       median = TRUE,
       iqr = TRUE)
   )
-  output$note <- renderText("STADEX atau Statistical Data Exploration merupakan aplikasi yang berguna untuk melakukan eksplorasi data dan memberikan informasi terkait statistika deskriptif seperti mean, median, max, min, percentil, dan standar deviasi sehingga membantu dalam memahami karakteristik dari data. Statistical Data Exploration juga dapat melakukan uji normalitas untuk melihat kenormalan dari data. Statistical Data Exploration hanya terbatas pada data bertipe numerik.
-")
+  output$note <- renderText({
+    paste("STADEX atau Statistical Data Exploration merupakan aplikasi yang berguna untuk melakukan eksplorasi data dan memberikan informasi terkait statistika deskriptif seperti mean,"
+          ,"median, max, min, percentil, dan standar deviasi sehingga membantu dalam memahami karakteristik dari data.",
+    "Statistical Data Exploration juga dapat melakukan uji normalitas untuk melihat kenormalan dari data. Statistical Data Exploration hanya terbatas pada data bertipe numerik.",
+  "Pembuat Aplikasi:",
+  "Anggun Andini Br Tarigan (G14190004)",
+  "Nenden Maulidia (G14190026)",
+  "Vera Amelia (G14190036)",
+  "Muhamad Tri Hanrevi (G14190046)",
+  "Zahra Nurul Fatimah (G14190070)",
+  "Sita Afrea Syamsiyah (G14190082)", sep="\n")})
   
   output$plot <- renderPlot({
     if(input$num=="Histogram"){
