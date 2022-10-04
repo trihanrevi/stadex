@@ -24,7 +24,7 @@ ui <- dashboardPage(
                     selectInput(inputId = "num", label = "Pilih Jenis Visualisasi", 
                                 c("Histogram", "Boxplot", "Density", "Scatter Plot","QQ-Plot")),
                     conditionalPanel(
-                        condition = "input.num == 'scatter plot'",
+                        condition = "input.num == 'Scatter Plot'",
                         selectInput("var2",
                                     label = "Pilih Variabel Numerik ke-2:",
                                     choices = NULL,
